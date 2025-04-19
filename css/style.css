@@ -1,0 +1,203 @@
+body {
+  font-family: sans-serif;
+  margin: 0; /* Remove margin */
+  padding: 1em; /* Add padding inside */
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #343a40;
+  overflow: hidden; /* Prevent body scrolling */
+  box-sizing: border-box; /* Include padding in height */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #212529;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  background-color: #e9ecef;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+pre {
+  background-color: #e9ecef;
+  padding: 1em;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+/* App Layout */
+.app-container {
+  display: flex;
+  height: calc(100vh - 2em); /* Fill remaining viewport height considering body padding */
+  gap: 1em; /* Add space between panels */
+}
+
+.left-panel {
+  flex: 1; /* Takes up remaining space */
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.right-panel {
+  width: 400px; /* Fixed width */
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  overflow: hidden; /* Prevent inner elements from overflowing */
+}
+
+/* Video Player */
+.video-container {
+  flex-grow: 1; /* Allow video to take available space */
+  margin-bottom: 1em;
+  background-color: #000; /* Black background for video area */
+}
+
+.video-container video {
+  display: block; /* Remove extra space below video */
+  width: 100%;
+  max-height: 60vh; /* Limit video height */
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 1em;
+  flex-wrap: wrap; /* Allow controls to wrap on smaller screens */
+}
+
+.controls button,
+.controls select {
+  padding: 0.5em 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.controls button:hover,
+.controls select:hover {
+  background-color: #eee;
+}
+
+.controls .slider {
+  flex-grow: 1;
+  margin: 0 0.5em;
+}
+
+.controls span {
+  font-family: monospace;
+  min-width: 4em; /* Ensure space for time display */
+  text-align: center;
+}
+
+/* File Uploaders */
+.file-uploaders {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.file-uploaders label {
+  cursor: pointer;
+}
+
+.file-uploaders input[type="file"] {
+  /* Consider styling or hiding the default input and using the label */
+  border: 1px solid #ccc;
+  padding: 0.3em;
+  border-radius: 4px;
+}
+
+/* Subtitle Overlay (Inside Video) */
+.subtitle-overlay {
+  position: absolute;
+  /* Removed bottom, left, transform - position is now controlled by JS */
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  color: white;
+  padding: 5px 15px;
+  cursor: move; /* Indicate draggable */
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.1em; /* Adjust as needed */
+  max-width: 80%; /* Prevent overlay from being too wide */
+  /* pointer-events: none; */ /* Removed to allow dragging */
+}
+
+
+/* Search Results */
+.search-results {
+  flex-grow: 1;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  padding: 0.5em;
+  /* margin-bottom: 1em; */ /* Removed as it's the last element now */
+  background-color: #fdfdfd;
+}
+
+.right-panel > div:last-child { /* Target the search results container */
+   margin-bottom: 0; /* Remove bottom margin from last element */
+}
+
+
+.search-result {
+  padding: 0.5em;
+  margin-bottom: 0.3em;
+  border-bottom: 1px dotted #eee;
+  cursor: pointer;
+  display: flex; /* Use flex for timestamp and text */
+  gap: 0.5em;
+}
+
+.search-result:hover {
+  background-color: #f0f0f0;
+}
+
+.search-result .timestamp {
+  font-family: monospace;
+  color: #555;
+  min-width: 5em; /* Fixed width for timestamp */
+}
+
+.search-result .text {
+  flex-grow: 1; /* Allow text to take remaining space */
+  overflow-wrap: break-word; /* Allow long words/filenames to wrap */
+  min-width: 0; /* Helps flex items shrink properly */
+}
+
+
+/* Search Bar */
+.search-bar {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.right-panel h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+}
